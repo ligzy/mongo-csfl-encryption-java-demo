@@ -73,6 +73,7 @@ public class PersonHandler {
 		for (EncryptedPerson person : encryptedPerson ) {
 			logger.debug(person.toString());
 		}
+		logger.debug("--------------decrypted person-----------------");
 		
 		for (Person person : decryptedPersons ) {
 			logger.debug(person.toString());

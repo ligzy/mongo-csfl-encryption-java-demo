@@ -1,8 +1,8 @@
 spring:
   data:
     mongodb:
-      database: test
-      uri: mongodb://localhost:30000
+      database: nat_admin
+      uri: mongodb://172.16.10.14:27019
       key:
         vault:
           database: "encryption"
@@ -17,6 +17,7 @@ spring:
 logging:
   level:
     org.springframework: ERROR
+    org.mongodb: WARN
     com.paychex: DEBUG
   pattern:
     console: "%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"
