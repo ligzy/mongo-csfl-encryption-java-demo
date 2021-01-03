@@ -65,14 +65,12 @@ public class PersonHandler {
 		logger.debug("-------------------------------");
 
 		List<Person> decryptedPersons = encryptedPersonRepository.findAll()
-				.stream().map(ep -> personEntityHelper.getPerson(ep))
+				.stream().map(ep -> {Person p=personEntityHelper.getPerson(ep); 
+				logger.debug("encrypted:"+ep.toString());
+				logger.debug("decrypted:"+p.toString());
+				return p;})
 				.collect(Collectors.toList());
-		
-
-		List<EncryptedPerson> encryptedPerson = encryptedPersonRepository.findAll();
-		for (EncryptedPerson person : encryptedPerson ) {
-			logger.debug(person.toString());
-		}
+		 
 		logger.debug("--------------decrypted person-----------------");
 		
 		for (Person person : decryptedPersons ) {
