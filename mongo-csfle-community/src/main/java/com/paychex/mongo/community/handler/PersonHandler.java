@@ -67,7 +67,13 @@ public class PersonHandler {
 		List<Person> decryptedPersons = encryptedPersonRepository.findAll()
 				.stream().map(ep -> personEntityHelper.getPerson(ep))
 				.collect(Collectors.toList());
+		
 
+		List<EncryptedPerson> encryptedPerson = encryptedPersonRepository.findAll();
+		for (EncryptedPerson person : encryptedPerson ) {
+			logger.debug(person.toString());
+		}
+		
 		for (Person person : decryptedPersons ) {
 			logger.debug(person.toString());
 		}
